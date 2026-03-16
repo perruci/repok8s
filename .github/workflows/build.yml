@@ -1,0 +1,22 @@
+name: Build Image
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Login Nexus
+      run: |
+        echo "${{ secrets.NEXUS_PASS }}" | docker login localhost:5000 -u ${{ secrets.NEXUS_USER }} --password-stdin
+
+    - name: Build image
+      run: docker build -t localhost:5000/app:latest .
+
+    - name: Push image
+      run: docker push localhost:5000/app:latest
