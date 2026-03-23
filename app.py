@@ -3,6 +3,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Teste ambiente de DEV - Image Updater - deploy dev - Agora vai - vai com tag 1.0.8"
+    return "Testando o promote via PR para ambiente de HML"
 
 app.run(host="0.0.0.0", port=5000)
