@@ -3,6 +3,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Teste Final Image Updater Argo =), agora testando a newTag"
+    return "Teste ambiente de DEV - Image Updater"
 
 app.run(host="0.0.0.0", port=5000)
